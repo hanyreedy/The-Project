@@ -1,11 +1,75 @@
 
+
+
+nav {
+    margin-bottom: 50px;
+}
+.list-top a , .list-top h6 
+{
+	text-decoration: none;
+	color: #adb0b0;
+	transition: 1s;
+	cursor: pointer;
+}
+
+.list-top a:hover , .list-top h6:hover
+{
+	color:#ed170c;
+}
+
+.links li
+{
+	display: inline;
+	
+	
+}
+.links li a
+{
+	text-decoration: none;
+	color: #696e6e;
+}
+.links li a:hover
+{
+	background-color: #ed170c;
+	border-radius: 4px;
+	color: #fff;
+}
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link
+{
+	background-color: #ed170c;
+}
+.icons a i
+{
+	color: #696e6e;
+	margin-right: 10px;
+	font-size: 20px;
+	background-color: #ecf0f1;
+ padding: 9px 15px 10px 10px;
+	border-radius: 4px;
+}
+.icons .btn-cart
+{
+		background-color: #ed170c;
+ padding: 9px 47px 10px 10px;
+
+}
+
+
+
+/*==========================================End Nav===============================================*/
+
+
+
+
+
 .sidmenu {
+    
     width: 200px;
     height: 300px;
     box-sizing: border-box;
 }
 .row .sidmenu {
-    border: 1px solid #696e6e;
+    border: 1px solid #adb0b0;
     border-left: 3px solid #ed170c;
     text-align: center;
     position: relative;
@@ -20,6 +84,13 @@
    margin: 0;
     
 }
+
+.row .sidmenu li {
+    list-style: none;
+    margin: 0;
+    
+     
+ }
 
 
 
@@ -92,6 +163,88 @@
         height: 100%;
         z-index: -1
     }
+}
+
+
+
+
+/*=====================================footer===============================*/
+
+
+.footer
+{
+	background-color: #121830;
+	padding-top: 50px;
+
+	color: #fff;
+	text-align: center;
+}
+ .about , .info
+{
+	color: #bdc3c7;
+	padding: 20px
+	
+}
+.about .contact-icons a i
+{
+	display:inline-block;
+	margin-right:6px;
+color: #bdc3c7;
+	transition:all 1s;
+		background-color: transparent;
+	width: 50px;
+	padding:20px 0; 
+	border-radius: 6px;
+	text-align: center;
+
+}
+
+.contact-icons .facebook:hover
+{
+
+	background-color: #3b5998;
+	color: #fff;
+	
+}
+.contact-icons .twtr:hover
+{
+
+	background-color: #1da1f2;
+	color: #fff;
+	
+}
+
+.contact-icons .gogle:hover
+{
+
+	background-color: #eb4235;
+	color: #fff;
+	
+}
+
+.contact-icons .tube:hover
+{
+
+	background-color: #eb4235;
+	color: #fff;
+	
+}
+
+.info p i
+{
+	float: right;
+	margin-top: 7px;
+}
+
+.info p
+{
+		transition:all 1s;
+	cursor: pointer;
+
+}
+.info p:hover
+{
+	color:#ed170c;
 }
 
 
