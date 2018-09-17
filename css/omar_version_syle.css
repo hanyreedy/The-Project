@@ -1,0 +1,43 @@
+.navbar {
+    margin-bottom: 0;
+    background-color: #121830;
+    border: 0;
+    letter-spacing: 4px;
+    opacity: 0.9;
+    height: 60px;
+    z-index: 9;
+    position: relative;
+    animation: 1s ease-out 0s 1 slideInFromtop;
+}
+.nav-logo {
+    width: 100px;
+    height: 60px;
+}
+.navbtns {
+    color: #fecf06;
+    background: none;
+    padding: 6px 12px;
+}
+.bodypart {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+.editnav {
+    width: 100%;
+    background: #f7f7f7;
+    height: 60px;
+    z-index: 5;
+    margin-left: 0px;
+    position: absolute;
+    padding-top: 12px
+}
+.editrbtn {
+    background-color: #fecf06;
+    color: #000;
+    height: 34px;
+    font-family: inherit;
+    cursor: pointer;
+}

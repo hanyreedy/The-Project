@@ -1,0 +1,590 @@
+
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+ 		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+ 		<link rel="stylesheet" type="text/css" href="css/index_style2.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+        <link href="css/spectrum.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="css/jquery.convform.css">
+ 	</head>
+
+<body>
+<!--Navbar -->
+<nav class="navbar navbar-expand-lg">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-    expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <li><a class="navbar-brand" href="index_omar.html">
+      <img class="nav-logo" src="image/logo.png" alt="">
+      </a></li>
+      
+        <!--right Part-->
+        <ul class="navbar-nav mr-auto">
+                    <li>
+                        <button class="btn navbtns" id="undo">Undo</button>
+                    </li>
+                    <li>
+                        <button class="btn navbtns" id="redo" disabled="">Redo</button>
+                    </li>
+                    <li>
+                        <button class="btn navbtns" id="helpbtn">Help</button>
+                    </li>
+        </ul>
+        <!--left Part-->
+        <ul class="navbar-nav">
+                    <li>
+                        <button  class="btn navbtns" id="findmyinv" >Home</button>
+                    </li>
+                    
+                    <li>
+                        <button class="btn navbtns" id="headerloginModal">Login</button>
+                    </li>
+                    
+        </ul>
+    </div>
+</nav>
+    
+<bodypart>
+        <div class="editnav">
+        <div align="center" class="col-md-12 col-lg-12 col-sm-12">
+            <h3 class="float-left" style="font-size:20px; color:#fecf06; font-weight:bold;">Card Size : 5.5 x 4 in</h3>
+            <button class="btn editrbtn" id="preview"><i class="fa fa-eye"></i> Preview</button>
+            <button class="btn editrbtn" id="saveTemplate"><i class="fa fa-floppy-o"></i> Save your Invite</button>
+            <button class="btn editrbtn" id="editor-cart"><i class="fa fa-shopping-cart"></i> Add To Cart</button>
+            <button class="btn editrbtn" id="downloadpdf">Download </button>            
+            <button class="btn editrbtn" id="createEvent" style="background-color: #ed170c; color:#fff"><i class="fa fa-address-book"></i> Create Event</button>
+            <button class="btn editrbtn" id="manageEvent" style="background-color: #ed170c; color:#fff"><i class="fa fa-address-book"></i> Manage Events</button>
+            <button type="button" class="position-relative float-right btn editrbtn">
+                <i class="fa fa-shopping-cart"></i>
+                <span class="badge badge-dark">0</span>
+                <span class="sr-only">unread messages</span>
+                <b><i class="fa fa-inr"></i> 0.00</b>
+</button>
+        </div>
+    </div>
+        <div class="wrapper">
+    <!-- Sidebar -->
+    <nav class="sidebar">
+<section id="content" class="preparing">
+            <section id="objectPanel" class="stage7"> <span id="selectedTab"></span>
+            
+                    <menu>
+                    <li class="editorbtn invitations">
+                        <a><i class="fa fa-desktop"></i> Invitations </a>
+                    </li>
+                    <li hover="hoveer()" class="editorbtn cardsizes">
+                        <a><i class="fa fa-columns"></i> Card Sizes </a>
+                    </li>
+                    <li class="editorbtn background">
+                        <a><i class="fa fa-picture-o"></i> Bg Patterns </a>
+                    </li>
+                    <li onmouseover="hoveer()" class="editorbtn backgroundsettings">
+                        <a><i class="fa fa-picture-o"></i> Bg Options </a>
+                    </li>
+                    <li class="editorbtn uploads">
+                        <a><i class="fa fa-upload"></i> Uploads </a>
+                    </li>
+                    <li class="editorbtn cliparts">
+                        <a><i class="fa fa-cubes"></i> Clip Arts </a>
+                    </li>
+                    <li class="editorbtn customtext">
+                        <a><i class="fa fa-font"></i> Text </a>
+                    </li>
+                    <li class="editorbtn textupload">
+                        <a><i class="fa fa-font"></i> Add Text </a>
+                    </li>
+                    <li class="editorbtn drawing">
+                        <a><i class="fa fa-paint-brush"></i> Drawing </a>
+                    </li>
+
+                </menu>
+                <!-- Content of sidebar -->
+                    <section id="content" class="content" style="color: #fff;padding: auto;list-style-type: none;">
+
+                    <section id="invitations" class="float-left results infinite onn">
+
+                            <div align="center" class="ml-3 float-left col-md-12 col-lg-12 ">
+                                <select id="getinvite" class="selectmenu">
+                                    <option value="seasonsgreetings">Seasons Greetings</option>
+                                    <option value="wedding">Wedding</option>
+                                    <option value="floral">Floral</option>
+                                    <option value="birthday">Birthday</option>
+                                    <option value="party">Party</option>
+                                    <option value="babyshower">Baby Shower</option>
+                                    <option value="bridalshower"> Bridal Shower</option>
+                                </select>
+                            </div>
+
+                            <div class="slimScrollDiv" style=" position: relative; overflow: hidden; width: 85%; height: 528px;list-style-type: none;">
+                            <div id="container " class="mousescroll ml-4" style="overflow: hidden; width: 85%; height: 528px;list-style-type: none;">
+                                <ul id="myContent" class="fadeInDown900" style="list-style-type: none"> 
+                                            <li class="animated" style="" inserting="false"><img class="admintemplates" src="https://editor-cliparts.s3.amazonaws.com/Admin_templates/seasonsgreetingstemplimg732810" alt="backgroundTemplate"></li>
+                                <style>.fadeInDown900 .animated.fadeInDown {-webkit-animation-duration: 2000ms;animation-duration: 2000ms;}</style></ul>
+                            </div></div> 
+                    </section>
+
+                    <section id="cardsizes" class="results col-12 infinite">
+                            <h4 style="text-align:center"> Card Sizes:(inches) </h4>
+                            <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: 97%; height: 528px;"><div id="containercs" class="mousescroll" style="overflow: hidden; width: 97%; height: 528px;">
+                                <ul id="myContent3"> 			
+                                    <a id="5by7"><img class="smallimg" src="https://d1k3bywjjza9bz.cloudfront.net/images/editor/5x7.png" alt=""></a>
+                                    <a id="6by9"><img class="smallimg" src="https://d1k3bywjjza9bz.cloudfront.net/images/editor/6x9.png" alt=""></a>
+                                    <a id="4by8"><img class="smallimg" src="https://d1k3bywjjza9bz.cloudfront.net/images/editor/4x8.png" alt=""></a>
+                                    <a id="5_5by4"><img class="smallimg" src="https://d1k3bywjjza9bz.cloudfront.net/images/editor/5_5x4.png" alt=""></a>
+                                </ul> 
+                            </div><div class="slimScrollBar  ui-draggable" style="border-radius: 10px; background: rgb(255, 255, 255); width: 10px; position: absolute; top: 0px; opacity: 0.4; display: none; z-index: 99; right: 1px;"></div><div style="width: 15px; height: 100%; position: absolute; top: 0px; right: 1px;"></div></div>
+                    </section>
+                    
+                    <section id="background" class="results infinite">
+                        
+                        <div class="m_bottom_30"></div>
+                            <div align="center">
+                                <label class="mt-2">Background Color</label> 
+                            </div>
+                            <br> 
+                            <div class="ml-6 pl-3">
+                                <a><div class="divc " style="background-color:#22aae1"></div></a>
+                                <a><div class="divc " style="background-color:#EC008C"></div></a>
+                                <a><div class="divc " style="background-color:#09BBB6"></div></a>
+                                <a><div class="divc " style="background-color:#3D2535"></div></a>
+                                <a><div class="divc " style="background-color:#6D1E5F"></div></a>
+                                <a><div class="divc " style="background-color:#EF4023"></div></a>
+                                <a><div class="divc " style="background-color:#00687F"></div></a>
+                                <a><div class="divc " style="background-color:#F78F1E"></div></a>
+                                <a><div class="divc " style="background-color:#C2D82E"></div></a>
+                                <a><div class="divc " style="background-color:#6C0B1F"></div></a>
+                                <a><div class="divc " style="background-color:#FFCD34"></div></a>
+                                <a><div class="divc " style="background-color:#FFF8DD"></div></a>
+                                <a><div class="divc " style="background-color:#9F1F63"></div></a>
+                                <a><div class="divc " style="background-color:#C36294"></div></a>
+                                <a><div class="divc " style="background-color:#F9E076"></div></a>
+                                <a><div class="divc " style="background-color:#F0867D"></div></a>
+                                <a><div class="divc " style="background-color:#4AB848"></div></a>
+                                <a><div class="divc " style="background-color:#f47f4f"></div></a>
+                                <a><div class="divc " style="background-color:#fd5939"></div></a>
+                                <a><div class="divc " style="background-color:#413b5d"></div></a>
+                                <a><div class="divc" style="background-color:#231F20"></div></a>
+                                <a><div class="divc " style="background-color:#DFDEDE"></div></a>
+                                <a><div class="divc " style="background-color:#FCFCE1"></div></a>
+                                <a><div class="divc" style="background-color:#70C59A"></div></a>
+                            </div>
+
+                            <div align="center">
+                                <label for="bgcolorchooser">Custom Color: </label> 
+                                <input type='color' class='basic' value='#f594d0' />
+                            </div>
+                           
+
+                            <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: 97%; height: 328px;"><div id="containerback" class="mousescroll" style="overflow: hidden; width: 97%; height: 328px;">
+                            </div><div class="slimScrollBar  ui-draggable" style="border-radius: 10px; background: rgb(255, 255, 255); width: 10px; position: absolute; top: 0px; opacity: 0.4; display: none; z-index: 99; right: 1px;"></div><div style="width: 15px; height: 100%; position: absolute; top: 0px; right: 1px;"></div></div> 
+                    </section>
+
+                    <section id="backgroundsettings" class="results infinite">
+                            <div class="ml-6 pt-3 pl-4 text-center">
+                                <button class=" btn filebtn editrbtn " id="clearbgimg" style="margin-left:-20px;"> Clear BackGround </button>
+                                <p>Transparency:</p>
+                                <input id="bgopacity" type="range" min="0" max="100" step="1" value="0">
+                                <br>
+                                <p>Gradient:</p>
+                                <label for="grdColor1">Color1: </label>&nbsp; <input type="color" id="grdColor1" style="display: none;"><div class="sp-replacer sp-light"><div class="sp-preview"><div class="sp-preview-inner" style="background-color: rgb(254, 207, 6);"></div></div><div class="sp-dd">▼</div></div>
+                                <label for="grdColor2">Color2: </label>&nbsp; <input type="color" id="grdColor2" style="display: none;"><div class="sp-replacer sp-light"><div class="sp-preview"><div class="sp-preview-inner" style="background-color: rgb(254, 207, 6);"></div></div><div class="sp-dd">▼</div></div>  <br><br>
+                                <input type="checkbox" name="" id="top" class="d_none">&nbsp;<label for="top">Top</label> 
+                                <input type="checkbox" name="" id="bottom" class="d_none">&nbsp;<label for="bottom">Bottom</label> 
+                                <br>
+                                <br>
+                                <button class=" btn filebtn editrbtn" id="gradientapply">Apply Gradient</button><br>
+                            </div>
+                    </section>
+
+                    <section id="uploads" class="results infinite">
+
+                            <div class="ml-6 pt-3 pl-4 text-center">
+                            <label class="btn-file btn filebtn editrbtn ">
+                                Set A Background Image<input type="file" id="choosebgimage" style="display: none;">
+                            </label>
+                            <label class="btn-file btn filebtn editrbtn">
+                                Upload an Image <input type="file" id="addImage" style="display: none;">
+                            </label>
+                            </div>
+                    </section>
+
+                    <section id="cliparts" class="results infinite">
+
+                            <div class="ml-6 pt-3 pl-4 text-center col-md-12 col-lg-12 ">
+                                <select id="getclipart" class="selectmenu">
+                                    <option value="wedding">Wedding</option>
+                                    <option value="party">Party</option>
+                                    <option value="birthday">Birthday</option>
+                                    <option value="watercolor">WaterColor</option>
+                                    <option value="floral">Floral</option>
+                                   <!--<option value="festival">Festival</option>--> 
+                                    <option value="border">Borders</option>
+                                    <option value="misc">Misc</option>
+                                </select>
+                            </div>
+
+                            <hr>
+
+                            <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: 97%; height: 528px;"><div id="containerclipart" class="mousescroll" style="overflow: hidden; width: 97%; height: 528px;">
+
+                                <ul id="myContent3" class="fadeInDown673"> 
+                                    
+    
+                                        
+                                    
+  
+                                <style>.fadeInDown673 .animated.fadeInDown {-webkit-animation-duration: 2000ms;animation-duration: 2000ms;}</style></ul>    
+                            </div><div class="slimScrollBar  ui-draggable" style="border-radius: 10px; background: rgb(255, 255, 255); width: 10px; position: absolute; top: 0px; opacity: 0.4; display: none; z-index: 99; right: 1px;"></div><div style="width: 15px; height: 100%; position: absolute; top: 0px; right: 1px;"></div></div>
+                      
+                    </section>
+
+                    <section id="customtext" class="results infinite">
+                                         
+<br>
+
+                            <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: 97%; height: 528px;"><div id="containertext" class="mousescroll" style="overflow: hidden; width: 97%; height: 528px;">
+                                <ul id="myContent" class="fadeInDown819"> 
+                                    
+    
+                                        
+                                            <li class="animated fadeInDown" style="list-style-type: none"><img class="admintemplates" src="image/image-of-font.png" alt="backgroundTemplate"></li>
+                                        
+                                    
+  
+                                <style>.fadeInDown819 .animated.fadeInDown {-webkit-animation-duration: 2000ms;animation-duration: 2000ms;}</style></ul> 
+                                 
+                            </div><div class="slimScrollBar  ui-draggable" style="border-radius: 10px; background: rgb(255, 255, 255); width: 10px; position: absolute; top: 0px; opacity: 0.4; display: none; z-index: 99; right: 1px;"></div><div style="width: 15px; height: 100%; position: absolute; top: 0px; right: 1px;"></div></div>     
+                    </section>
+
+                    <section id="textupload" class="results infinite"> 
+                        <div class="ml-6 pt-3 pl-4 text-center">
+                            <select id="fontTypetext" class="fontType2" style="background: #272d44; color:#fff; display:none">
+                                   <option value="arial" style="font-family:Arial">Arial</option>
+                                <option value="Adios_Script_Pro" style="font-family:Adios_Script_Pro">Adios_Script_Pro</option>
+                                <option value="Alice-Regular" style="font-family:Alice-Regular">Alice-Regular</option>
+                                <option value="Aller_Lt" style="font-family:Aller_Lt">Aller_Lt</option>
+                                <option value="Aller_Rg" style="font-family:Aller_Rg">Aller_Rg</option>
+                                <option value="Amperzand" style="font-family:Amperzand">Amperzand</option>
+                                <option value="ArbutusSlab-Regular" style="font-family:ArbutusSlab-Regular">ArbutusSlab-Regular</option>
+                                <option value="Bariol_Bold" style="font-family:Bariol_Bold">Bariol_Bold</option>
+                                <option value="Bariol_Regular" style="font-family:Bariol_Regular">Bariol_Regular</option>
+                                <option value="BebasNeue 2" style="font-family:BebasNeue 2">BebasNeue 2</option>
+                                <option value="BebasNeue Bold" style="font-family:BebasNeue Bold">BebasNeue Bold</option>
+                                <option value="BebasNeue Regular" style="font-family:BebasNeue Regular">BebasNeue Regular</option>
+                                <option value="BookendsWithAccents" style="font-family:BookendsWithAccents">BookendsWithAccents</option>
+                                <option value="budmo jiggler" style="font-family:budmo jiggler">budmo jiggler</option>
+                                <option value="Buttermilk" style="font-family:Buttermilk">Buttermilk</option>
+                                <option value="Canter Bold" style="font-family:Canter Bold">Canter Bold</option>
+                                <option value="CaviarDreams_Bold" style="font-family:CaviarDreams_Bold">CaviarDreams_Bold</option>
+                                <option value="CENTAUR" style="font-family:CENTAUR">CENTAUR</option>
+                                <option value="CenturyGothic" style="font-family:CenturyGothic">CenturyGothic</option>
+                                <option value="Didot-HTF-L24-Light" style="font-family:Didot-HTF-L24-Light">Didot-HTF-L24-Light</option>
+                                <option value="Didot-HTF-L42-Light-Ital" style="font-family:Didot-HTF-L42-Light-Ital">Didot-HTF-L42-Light-Ital</option>
+                                <option value="DIN_MediumAlternate" style="font-family:DIN_MediumAlternate">DIN_MediumAlternate</option>
+                                <option value="EdwardianScriptITC" style="font-family:EdwardianScriptITC">EdwardianScriptITC</option>
+                                <option value="Fonts With Love" style="font-family:Fonts With Love">Fonts With Love</option>
+                                <option value="Ikaros-Regular" style="font-family:Ikaros-Regular">Ikaros-Regular</option>
+                                <option value="In The Know" style="font-family:In The Know">In The Know</option>
+                                <option value="JandaAsLongAsYouLoveMe" style="font-family:JandaAsLongAsYouLoveMe">JandaAsLongAsYouLoveMe</option>
+                                <option value="Justus-Versalitas" style="font-family:Justus-Versalitas">Justus-Versalitas</option>
+                                <option value="KGTwoisBetterThanOne" style="font-family:KGTwoisBetterThanOne">KGTwoisBetterThanOne</option>
+                                <option value="Lace 1.0" style="font-family:Lace 1.0">Lace 1.0</option>
+                                <option value="lazyday" style="font-family:lazyday">lazyday</option>
+                                <option value="Linotte-SemiBold" style="font-family:Linotte-SemiBold">Linotte-SemiBold</option>
+                                <option value="Moon Bold" style="font-family:Moon Bold">Moon Bold</option>
+                                <option value="Moon Light" style="font-family:Moon Light">Moon Light</option>
+                                <option value="MuseoSans_500" style="font-family:MuseoSans_500">MuseoSans_500</option>
+                                <option value="Parisienne-Regular" style="font-family:Parisienne-Regular">Parisienne-Regular</option>
+                                <option value="Pompiere-Regular" style="font-family:Pompiere-Regular">Pompiere-Regular</option>
+                                <option value="Roboto-Light" style="font-family:Roboto-Light">Roboto-Light</option>
+                                <option value="Roboto-Medium" style="font-family:Roboto-Medium">Roboto-Medium</option>
+                                <option value="Roboto-Regular" style="font-family:Roboto-Regular">Roboto-Regular</option>
+                                <option value="Signika-Bold" style="font-family:Signika-Bold">Signika-Bold</option>
+                                <option value="Signika-Regular" style="font-family:Signika-Regular">Signika-Regular</option>
+                                <option value="SpicyRice-Regular" style="font-family:SpicyRice-Regular">SpicyRice-Regular</option>
+                                <option value="ThrowMyHandsUpintheAir" style="font-family:ThrowMyHandsUpintheAir">ThrowMyHandsUpintheAir</option>
+                                <option value="ThrowMyHandsUpintheAirBold" style="font-family:ThrowMyHandsUpintheAirBold">ThrowMyHandsUpintheAirBold</option>
+                                <option value="Vidaloka-Regular" style="font-family:Vidaloka-Regular">Vidaloka-Regular</option>
+                                <option value="Biscotti-Bold" style="font-family:Biscotti-Bold">Biscotti-Bold</option>
+                                <option value="Biscotti-Regular" style="font-family:Biscotti-Regular">Biscotti-Regular</option>
+                                <option value="Geneva" style="font-family:Geneva">Geneva</option>
+                                <option value="GOTHIC" style="font-family:GOTHIC">GOTHIC</option>
+                                <option value="GOTHICB" style="font-family:GOTHICB">GOTHICB</option>
+                                <option value="GOTHICBI" style="font-family:GOTHICBI">GOTHICBI</option>
+                                <option value="GOTHICI" style="font-family:GOTHICI">GOTHIC</option>
+                                <option value="GOUDYSTO" style="font-family:GOUDYSTO">GOUDYSTO</option>
+                                <option value="Hero Light" style="font-family:Hero Light">Hero Light</option>
+                                <option value="Hero" style="font-family:Hero">Hero</option>
+                                <option value="Prida01" style="font-family:Prida01">Prida01</option>
+                                <option value="Museo300-Regular" style="font-family:Museo300-Regular">Museo300-Regular</option>
+                                <option value="Lora-Regular" style="font-family:Lora-Regular">Lora-Regular</option>
+                                <option value="Lora-Italic" style="font-family:Lora-Italic">Lora-Italic</option>
+                                <option value="Gotham-Light" style="font-family:Gotham-Light">Gotham-Light</option>
+                                <option value="Gotham-Book" style="font-family:Gotham-Book">Gotham-Book</option>
+                                <option value="JosefinSans-Regular" style="font-family:JosefinSans-Regular">JosefinSans-Regular</option>
+                                <option value="RobotoSlab-Regular" style="font-family:RobotoSlab-Regular">RobotoSlab-Regular</option>
+                                <option value="DaxCompact-Regular" style="font-family:DaxCompact-Regular">DaxCompact-Regular</option>
+                                <option value="MrsEavesSmallCaps" style="font-family:MrsEavesSmallCaps">MrsEavesSmallCaps</option>
+                                <option value="Abril Fatface" style="font-family:Abril Fatface">Abril Fatface</option>
+                                <option value="Alex Brush" style="font-family:Alex Brush">Alex Brush</option>
+                                <option value="Allura" style="font-family:Allura">Allura</option>
+                                <option value="Amarante" style="font-family:Amarante">Amarante</option>
+                                <option value="Amatic SC" style="font-family:Amatic SC">Amatic SC</option>
+                                <option value="Amita" style="font-family:Amita">Amita</option>
+                                <option value="Annie Use Your Telescope" style="font-family:Annie Use Your Telescope">Annie Use Your Telescope</option>
+                                <option value="Bad Script" style="font-family:Bad Script">Bad Script</option>
+                                <option value="Cinzel" style="font-family:Cinzel">Cinzel</option>
+                                <option value="Cookie" style="font-family:Cookie">Cookie</option>
+                                <option value="Cormorant Upright" style="font-family:Cormorant Upright">Cormorant Upright</option>
+                                <option value="Dancing Script" style="font-family:Dancing Script">Dancing Script</option>
+                                <option value="Delius Swash Caps" style="font-family:Delius Swash Caps">Delius Swash Caps</option>
+                                <option value="Dr Sugiyama" style="font-family:Dr Sugiyama">Dr Sugiyama</option>
+                                <option value="Fredericka the Great" style="font-family:Fredericka the Great">Fredericka the Great</option>
+                                <option value="Gabriela" style="font-family:Gabriela">Gabriela</option>
+                                <option value="Galada" style="font-family:Galada">Galada</option>
+                                <option value="Great Vibes" style="font-family:Great Vibes">Great Vibes</option>
+                                <option value="Handlee" style="font-family:Handlee">Handlee</option>
+                                <option value="IM Fell DW Pica" style="font-family:IM Fell DW Pica">IM Fell DW Pica</option>
+                                <option value="Indie Flower" style="font-family:Indie Flower">Indie Flower</option>
+                                <option value="Jacques Francois Shadow" style="font-family:Jacques Francois Shadow">Jacques Francois Shadow</option>
+                                <option value="Josefin Sans" style="font-family:Josefin Sans">Josefin Sans</option>
+                                <option value="Joti One" style="font-family:Joti One">Joti One</option>
+                                <option value="Kaushan Script" style="font-family:Kaushan Script">Kaushan Script</option>
+                                <option value="Merienda One" style="font-family:Merienda One">Merienda One</option>
+                                <option value="Mystery Quest" style="font-family:Mystery Quest">Mystery Quest</option>
+                                <option value="Niconne" style="font-family:Niconne">Niconne</option>
+                                <option value="Old Standard TT" style="font-family:Old Standard TT">Old Standard TT</option>
+                                <option value="Open Sans Condensed" style="font-family:Open Sans Condensed">Open Sans Condensed</option>
+                                <option value="Open Sans" style="font-family:Open Sans">Open Sans</option>
+                                <option value="Oswald" style="font-family:Oswald">Oswald</option>
+                                <option value="Parisienne" style="font-family:Parisienne">Parisienne</option>
+                                <option value="Poiret One" style="font-family:Poiret One">Poiret One</option>
+                                <option value="Quattrocento" style="font-family:Quattrocento">Quattrocento</option>
+                                <option value="Quicksand" style="font-family:Quicksand">Quicksand</option> 
+                                <option value="Ruthie" style="font-family:Ruthie">Ruthie</option> 
+                                <option value="Slabo 27px" style="font-family:Slabo 27px">Slabo 27px</option>
+                                <option value="Stalemate" style="font-family:Stalemate">Stalemate</option>
+                                <option value="Source Sans Pro" style="font-family:Source Sans Pro">Source Sans Pro</option>
+                                <option value="Sree Krushnadevaraya" style="font-family:Sree Krushnadevaraya">Sree Krushnadevaraya</option> 
+                                <option value="Tangerine" style="font-family:Tangerine">Tangerine</option>
+                                <option value="Taviraj" style="font-family:Taviraj">Taviraj</option>
+                                <option value="Trirong" style="font-family:Trirong">Trirong</option>
+                                <option value="UnifrakturCook" style="font-family:UnifrakturCook">UnifrakturCook</option>
+                                <option value="Zeyada" style="font-family:Zeyada">Zeyada</option>
+                            </select>
+
+                            <input id="fontSizetxt" type="number" value="20" style="width: 80px; background: #272d44; color:#fff;display:none">
+                                 
+                            <h1 class="txtheadings" id="h1heading"> <b>Add heading</b> </h1>
+
+                            <h2 class="txtheadings" id="h2heading"> <b>Add subheading</b> </h2>
+
+                            <p class="txtheadings" id="paratext"> <b>Add bodyparatext</b> </p>
+                            <hr style="border-top: 1px solid #ccc;">
+                            <br>
+                            <h4 class="m_bottom_20">Custom Text:</h4>
+                            
+                            <lable> Multi language: </lable>
+                            <br>
+                            <select id="drpLanguage" title="Select a language and type in english/ Select a language and paste the text " style="background: #272d44; color:#fff;">
+                                <option value=":">--Pramukh Indic--</option>
+                                <option value="pramukhindic:assamese">Assamese</option>
+                                <option value="pramukhindic:bengali">Bengali</option>
+                                <option value="pramukhindic:bodo">Bodo</option>
+                                <option value="pramukhindic:dogri">Dogri</option>
+                                <option value="pramukhindic:gujarati">Gujarati</option>
+                                <option value="pramukhindic:hindi">Hindi</option>
+                                <option value="pramukhindic:kannada">Kannada</option>
+                                <option value="pramukhindic:konkani">Konkani</option>
+                                <option value="pramukhindic:maithili">Maithili</option>
+                                <option value="pramukhindic:malayalam">Malayalam</option>
+                                <option value="pramukhindic:manipuri">Manipuri</option>
+                                <option value="pramukhindic:marathi">Marathi</option>
+                                <option value="pramukhindic:nepali">Nepali</option>
+                                <option value="pramukhindic:oriya">Oriya</option>
+                                <option value="pramukhindic:punjabi">Punjabi</option>
+                                <option value="pramukhindic:sanskrit">Sanskrit</option>
+                                <option value="pramukhindic:santali">Santali</option>
+                                <option value="pramukhindic:sindhi">Sindhi</option>
+                                <option value="pramukhindic:tamil">Tamil</option>
+                                <option value="pramukhindic:telugu">Telugu</option>
+                                <option value=":english" selected="selected">English (F9)</option>
+                            </select>
+                            <br>
+                            <br>
+
+                            <div class="col-md-12 underline">
+                                <textarea id="typingarea" class="textForm" name="Enter Text Here" placeholder="Add text/ Choose language and paste text..." style="height:100px; width:200px; background-color: #272d44!important; color: #fff;" spellcheck="false"></textarea>
+                            </div>
+
+
+                            <br>
+                            <input type="checkbox" name="" id="iscurved" class="d_none"><label for="iscurved">Want the text curved?</label><br>
+                            
+                            <button id="addTextbtn" type="button" class="btn editrbtn"> Add Text </button>
+                        </div>
+                    </section>
+
+                    <section id="drawing" class="results infinite">
+                            <div class="ml-6 pt-3 pl-4 text-center">
+
+<br>
+                            <h4 class="drawingh3"> Drawing mode: </h4>
+<br>
+
+                            <div align="center">
+                                <input style="width: 30px; height: 25px" type="checkbox" name="" id="drawingmode" class="d_none"><label for="drawingmode"></label> 
+                            </div>
+
+<br>
+                            <h5 class="drawingh3"> Brush Width: </h5>
+<br>
+
+                            <div class=" " align="center">
+                                <input id="drawing-line-width" type="range" min="0" max="100" step="1" value="0">
+                            </div>
+
+<br>
+                            <h5 class="drawingh3"> Brush Color: </h5>
+<br>
+                            <div align="center">
+                                <input type="color" class="basic" value="#fecf06">
+                            </div>
+                                </div>
+                    </section>                    
+                </section>
+            </section>
+        </section>
+    </nav>
+    
+    <!--Controls-->
+    <div class="rightCtrls tour_3">
+        <div class="RC-cont">
+            <li id="rotatec" class="simptip-position-left simptip-info" data-tooltip="Rotate Card"><i class="fa fa-refresh"></i></li>
+            <li id="clearcanvas" class="simptip-position-left simptip-info" data-tooltip="Clean Editor"><i class="fa fa-eraser"></i></li>
+            <li id="grided" class="simptip-position-left simptip-info" data-tooltip="Apply Grid"><i class="fa fa-th"></i></li>
+            <div class="objectbuttons" style="display: none;">
+                <li id="clearobject" class="simptip-position-left simptip-info" data-tooltip="Delete selected object"><i class="fa fa-trash"></i></li>
+                <li id="copyobject" class="simptip-position-left simptip-info" data-tooltip="Duplicate your object"> <i class="fa fa-copy"></i></li>
+                <li id="bringfwd" class="simptip-position-left simptip-info" data-tooltip="Bring object forward"> <i class="fa fa-square-o" style="margin-left: 25px;margin-top: 5px;z-index: -1;"></i><i class="fa fa-square" style="margin-top: -36px;"></i></li>
+                <li id="bringback" class="simptip-position-left simptip-info" data-tooltip="Push object backward"> <i class="fa fa-square-o" style="margin-top: -8px;"></i><i class="fa fa-square" style="margin-top: -20px;margin-left: 25px;"></i></li>
+                <li id="applycolor" class="simptip-position-left simptip-info" data-tooltip="Change color of Object" style="margin-left:2px"><input id="edclrchooser" style="display: none;" type="text"><div class="sp-replacer sp-light"><div class="sp-preview"><div class="sp-preview-inner" style="background-color: rgb(254, 207, 6);"></div></div><div class="sp-dd">▼</div></div></li>
+                <li class="rightctrlexp1 simptip-position-top simptip-info" data-tooltip="Lock Objects position">
+                    <i style="color:#fff;" class="fa fa-lock"></i><i style="color:#fff;margin-left:-1px;" class="fa fa-arrows-h"></i>
+                    <i style="color:#fff;margin-left: 38px;margin-top:-21px;" class="fa fa-arrows-v"></i>
+                        <ul class="RC-subCont RCSC1">
+                            <span>
+                      <li id="lockhorizontal" class="simptip-position-left simptip-info" data-tooltip="Lock horizontal Movement"><i class="fa fa-lock"></i><i style="margin-left:-1px;" class="fa fa-arrows-h"></i></li>
+                      <li id="lockvertical" class="simptip-position-left simptip-info" data-tooltip="Lock Vertical Movement"><i class="fa fa-lock"></i><i style="margin-left: 5px;" class="fa fa-arrows-v"></i></li>
+                      </span>
+                        </ul>
+                </li>
+                <li id="lockobject" class="simptip-position-left simptip-info" data-tooltip="Lock/Unlock Object"><i style="margin-left:15px;" class="fa fa-lock"></i><i style="margin-left:2px;" class="fa fa-unlock"></i></li>
+                <li class="rightctrlexp2 simptip-position-top simptip-info" data-tooltip="Flip Objects position">
+                    <i style="color:#fff;" class="fa fa-retweet"></i>
+                    <ul class="RC-subCont RCSC2">
+                        <span>
+                          <li id="flipx" class="simptip-position-left simptip-info" data-tooltip="Flip Horizontal"><i class="fa fa-star-half-o"></i></li>
+                          <li id="flipy" class="simptip-position-left simptip-info" data-tooltip="Flip Vertical"><i class="fa fa-star-half-o" style="transform: rotate(90deg);"></i></li>
+                      </span>
+                    </ul>
+                </li>
+                <li id="shadow" class="simptip-position-left simptip-info" data-tooltip="Shadow"><i class="fa fa-adjust"></i></li>
+                <li id="opacity" class="simptip-position-left simptip-info" data-tooltip="Opacity"><i class="fa fa-first-order"></i></li>
+            </div>
+        </div>
+    </div>
+    <!--Pricing-->
+    <div class=" pricesdropup">
+        <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown" style="background: #fecf06; width: 250px;">
+            Pricing and Quantity
+            <span class="caret" style="font-size: 18px;"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="menu1" style="padding:15px;">
+            <li><input type="radio" value="100" name="pquant" class="d_none" id="c2"><label for="c2">100 Cards <i class="fa fa-inr"></i> 23.37 / card</label></li>
+            <li><input type="radio" value="200" name="pquant" class="d_none" id="c4"><label for="c4">200 Cards <i class="fa fa-inr"></i> 20.30 / card</label></li>
+            <li><input type="radio" value="300" name="pquant" class="d_none" id="c6"><label for="c6">300 Cards <i class="fa fa-inr"></i> 19.68 / card</label></li>
+            <li><input type="radio" value="400" name="pquant" class="d_none" id="c8"><label for="c8">400 Cards <i class="fa fa-inr"></i> 19.38 / card</label></li>
+            <li><input type="radio" value="500" name="pquant" class="d_none" id="c9"><label for="c9">500 Cards <i class="fa fa-inr"></i> 19.07 / card</label></li>
+            <li><input type="radio" value="700" name="pquant" class="d_none" id="c11"><label for="c11">700 Cards <i class="fa fa-inr"></i> 18.92 / card</label></li>
+            <li><input type="radio" value="1000" name="pquant" class="d_none" id="c14"><label for="c14">1000 Cards <i class="fa fa-inr"></i> 18.76 / card</label></li>
+        </ul>
+        <p class="textenv" style="font-size:10px; color:#ed170c; text-align:center;">Each card comes with a plain ivory envelope</p>
+    </div>
+    <!--Zoom-->
+    <div class="btn-group editrbtn zoombtns" role="group" aria-label="Basic example">
+                <button type="button" class="btn editrbtn" id="zout"><i class="fa fa-search-minus" aria-hidden="true" style="font-size: 18px;"></i></button>
+                <button type="button" class="btn editrbtn">Magnify</button>
+                <button type="button" class="btn editrbtn" id="zin"><i class="fa fa-search-plus" aria-hidden="true" style="font-size: 18px;"></i></button>
+    </div>
+            
+
+            
+                <button type="button" id="sidebarCollapse" class="btn btn-info">
+                    <i class="fas fa-align-left"></i>
+                    <span>Toggle Sidebar</span>
+                </button>
+            </div>
+    <div class="paperClip  "> 
+        <div class="canvas-cont ">
+            
+            <div class="canvas-container" style="width: 495px; height: 360px; position: relative; user-select: none;"><canvas class="canvas tour_2 lower-canvas" id="canvas1" width="495" height="360" style="position: absolute; width: 495px; height: 360px; left: 0px; top: 0px; touch-action: none; user-select: none;">                            
+
+                
+                </canvas>
+                
+                <img src="image/giphy.gif" id="my-image"> 
+
+            </div>
+        </div>
+    </div>
+    
+    <div id="s-chat-box" class="s-chat-box js-chat-box s-chat-box-admin-is-offline">
+        <div id="s-chat-box-header" class="s-chat-box-header js-chat-box-close">
+            <div class="s-chat-header-title">
+                <span class="s-chat-presence-indicator"></span>
+                SimpleChat.Support
+            </div>
+        </div>
+        <div id="s-chat-messages" class="s-chat-messages js-chat-messages">
+            
+                <div id="s-chat-box-welcome-message" class="s-chat-box-welcome-message s-chat-message-item">
+        <div id="s-chat-box-welcome-avatar" class="s-chat-box-welcome-avatar s-chat-message-item-avatar"></div>
+        <div id="s-chat-box-welcome-message-text" class="s-chat-box-welcome-message-text message">
+            Hi, how can I help you?
+        </div>
+    </div>
+            
+            
+        </div>
+        <div id="s-chat-powered-by" class="s-chat-powered-by">
+            Powered by <a href="https://www.simplechat.support">www.SimpleChat.Support</a>
+        </div>
+        <textarea id="s-chat-submit-input" class="s-chat-submit-input js-chat-submit-input" rows="1" placeholder="Send message..."></textarea>
+    </div>
+    <div id="s-chat-box-opener" class="s-chat-box-opener js-chat-box-open">
+        <img class="chat-logo" src="image/chat.png" alt="">
+    </div>
+    
+</bodypart>
+        <div class="clearfix"></div>
+        
+        <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+        <script type="text/javascript" src="js/popper.min.js"></script>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+            <!-- jQuery Custom Scroller CDN -->
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+    <!-- jQuery color picker -->
+<script src="spectrum.js"></script>
+    <!--Chat bot plugin-->
+    <script src="js/jquery.convform.js"></script>
+
+    
+
+        <script type="text/javascript" src="js/mine.js"></script>
+    <script type="text/javascript" src="js/minefab.js"></script>
+    </body>
+</html>

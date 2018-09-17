@@ -1,0 +1,462 @@
+
+body
+{
+	overflow: hidden;
+}
+
+#loading
+{
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 863538536;
+}
+#loading img
+{
+	width: 100%;
+	height: 100%;
+}
+
+.carousel-inner
+{
+	width: 100% ;
+	height: 90% ;
+	position: relative;
+}
+.logo
+{
+	width: 20%;
+	position: absolute;
+	top: 15%;
+	left: 40%;
+	z-index: 3414;
+}
+.innovate
+{
+	position: absolute;
+	top: 45%;
+	left: 24%;
+	color: #fff;
+	text-shadow: 1px 2px #ed170c;
+	font-size: 50;
+}
+
+/*end of slider*/
+
+.about
+{
+	text-align: center;
+	margin-top: 30px;
+}
+.about h2
+{
+	font-size: 30px;
+    text-transform: uppercase;
+    color: #353535;
+    letter-spacing: 1px;
+	font-weight: 600;
+	padding-bottom: 30px;
+	position: relative;
+}
+
+.about h2:after
+{
+	content: "...........";
+	display: block;
+	width: 2px;
+	height: 2px;
+	position: absolute;
+	top: 50%;
+	left: 38%;
+}
+.about h2:before
+{
+	content: "...........";
+	display: block;
+	width: 2px;
+	height: 2px;
+	position: absolute;
+	top: 50%;
+	right: 45%;
+}
+.about .arro
+{
+	position: absolute;
+	top: 75%;
+	font-size: 28px;
+}
+
+
+@media(max-width:991px) and (min-width:774px)
+{
+	.about h2:after
+	{
+		left: 35%;
+	}
+	
+}
+
+@media(max-width:773px) and (min-width:572px)
+{
+	.about h2:after
+	{
+		left: 27%;
+	}
+	.about h2:before
+	{
+		right: 42%;
+	}
+}
+
+@media(max-width:571)
+{
+	.about h2:after
+	{
+		left: 0%;
+		content: "....";
+	}
+	.about h2:before
+	{
+		right: 0%;
+		content: "....";
+	}
+}
+
+.about p
+{
+	font-size: 18px;
+    text-shadow: 2px 2px #f7f7f7;
+	margin-top: 20px;
+	margin-bottom: 5px;
+	padding: 0 70px;
+}
+
+/*end of about*/
+
+
+.video .video1
+{
+	width: 100%;
+	height: 90%;
+	margin-top: 50px;
+	
+}
+
+/*end of video*/
+
+.products
+{
+	
+	text-align: center;
+	margin-top: 140px;
+}
+
+.products h1
+{
+	font-size: 30px;
+    text-transform: uppercase;
+    color: #353535;
+	padding-bottom: 30px;
+	margin-bottom: 60px;
+    font-weight: 600;
+	position: relative;
+}
+
+.products .arroo
+{
+	position: absolute;
+	top: 47%;
+	font-size: 34px;
+	left: 50%;
+}
+
+.products h1:after
+{
+	content: "...........";
+	display: block;
+	width: 2px;
+	height: 2px;
+	position: absolute;
+	top: 50%;
+	left: 40%;
+}
+.products h1:before
+{
+	content: "...........";
+	display: block;
+	width: 2px;
+	height: 2px;
+	position: absolute;
+	top: 50%;
+	right: 45%;
+}
+
+
+@media(max-width:991px) and (min-width:774px)
+{
+	.products h1:after
+	{
+		left: 38%;
+	}
+	
+}
+
+@media(max-width:773px) and (min-width:572px)
+{
+	.products h1:after
+	{
+		left: 32%;
+	}
+	.products h1:before
+	{
+		right: 42%;
+	}
+}
+
+@media(max-width:571)
+{
+	.products h1:after
+	{
+		left: 0;
+		content: "....";
+	}
+	.products h1:before
+	{
+		right: 0;
+		content: "....";
+	}
+}
+
+.products .pro h3
+{
+	font-size: 20px;
+	padding: 20px;
+}
+
+.products .pro img
+{
+	width: 100%;
+	height: auto;
+}
+
+.products .pro .btn
+{
+	margin-top: 35px;
+    margin-bottom: 0;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: #ed170c;
+    box-shadow: 8px 10px 20px 0px rgba(46, 61, 73, 0.15);
+    font-family: inherit;
+    color: #fff;
+    font-size: 13px;
+    line-height: 50px;
+    font-weight: 700;
+}
+
+/*end of Products*/
+
+
+
+.drop
+{
+	width: 100%;
+	height: 50%;
+	text-align: center;
+	margin-top: 100px;
+	background: #fafbfc;
+}
+.drop h1
+{
+	font-size: 30px;
+    text-transform: uppercase;
+    color: #353535;
+	font-weight: 600;
+	padding-top: 100px;
+	padding-bottom: 50px;
+	position: relative;
+}
+@media(max-width:1150px) and (min-width:968)
+{
+	.drop h1
+	{
+		padding-bottom: 200px;
+	}
+}
+
+
+.drop .dd .oo
+{
+	margin-top: -46px;
+	font-size: 30px;
+}
+
+.drop h1:after
+{
+	content: "...........";
+	display: block;
+	width: 2px;
+	height: 2px;
+	position: absolute;
+	top: 67%;
+	left: 40%;
+}
+.drop h1:before
+{
+	content: "...........";
+	display: block;
+	width: 2px;
+	height: 2px;
+	position: absolute;
+	top: 67%;
+	right: 45%;
+}
+
+
+
+.drop p
+{
+	display: block;
+    color: #ed170c;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 14px;
+    margin-top: 15px;
+}
+.drop .sup
+{
+	display: block;
+    color: #ed170c;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 14px;
+    margin-top: 15px;
+	cursor: pointer;
+}
+.drop .sup:hover
+{
+	  color: #337ab7;
+}
+
+/*end of drop*/
+
+.information
+{
+	width: 100%;
+	height: 55%;
+	background: #121830;
+	text-align: center;
+}
+.information h3
+{
+	color: #f9f9f9;
+	padding-top: 40px;
+	font-size: 1.4em;
+}
+.information p
+{
+	font-size: 14px;
+	color: #bdc3c7;
+	padding: 20px;
+}
+.information .pp
+{
+	font-size: 14px;
+	color: #bdc3c7;
+	padding: 10px;
+	cursor: pointer;
+}
+.information .pp:hover
+{
+	    color: #ed170c;
+}
+
+.information .input
+{
+	margin-top: 20px;
+}
+
+.information .btn
+{
+	box-shadow: 0 2px 0 #c0392b;
+	padding: 8px 15px;
+	min-width: 123px;
+	
+}
+
+.information .rights
+{
+	margin-top: 10px;
+}
+.information .rights span
+{
+	    color: #696e6e;
+}
+
+.information .aboutt .ico1
+{
+	color: #838a8f;
+	font-size: 20px;
+	margin-right: 15px;
+	cursor: pointer;
+	padding: 15px;
+}
+
+.information .aboutt .ico2
+{
+	color: #838a8f;
+	font-size: 20px;
+	margin-right: 15px;
+	cursor: pointer;
+	padding: 15px;
+}
+
+.information .aboutt .ico3
+{
+	color: #838a8f;
+	font-size: 20px;
+	margin-right: 15px;
+	cursor: pointer;
+	padding: 15px;
+}
+
+.information .aboutt .ico4
+{
+	color: #838a8f;
+	font-size: 20px;
+	cursor: pointer;
+	padding: 15px;
+}
+
+.information .aboutt .ico1:hover
+{
+	background-color: #337ab7;
+	color: #fff;
+	
+}
+
+.information .aboutt .ico2:hover
+{
+	background-color: #5e95c3;
+	color: #fff;
+}
+
+.information .aboutt .ico3:hover
+{
+	background-color: #ed170c;
+	color: #fff;
+}
+
+.information .aboutt .ico4:hover
+{
+	background-color: #f12b20;
+	color: #fff;
+}
+
+
+
+
+
+
