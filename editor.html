@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
         <link href="css/spectrum.css" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="css/jquery.convform.css">
+        <link rel="stylesheet" href="css/used_fonts.css">
 					 		<link rel="stylesheet" type="text/css" href="css/index_style2.css">
 
  	</head>
@@ -185,7 +186,7 @@
 
                     <section id="backgroundsettings" class="results infinite">
                             <div class="ml-6 pt-3 pl-4 text-center">
-                                <button class=" btn filebtn editrbtn " id="clearbgimg" style="margin-left:-20px;"> Clear BackGround </button>
+                                <button onclick="clearbg()" class=" btn filebtn editrbtn " id="clearbgimg" style="margin-left:-20px;"> Clear BackGround </button>
                                 <p>Transparency:</p>
                                 <input id="bgopacity" type="range" min="0" max="100" step="1" value="0">
                                 <br>
@@ -198,8 +199,8 @@
                                 
 								<input type="color" id="grdColor2" value="red">
 								<br><br>
-                                <input type="radio" name="positioncolor" id="top" class="d_none">&nbsp;<label for="top">Top</label> 
-                                <input type="radio" name="positioncolor" id="bottom" class="d_none">&nbsp;<label for="bottom">Bottom</label> 
+                                <input type="checkbox" name="positioncolor" id="top" class="d_none">&nbsp;<label for="top">Top</label> 
+                                <input type="checkbox" name="positioncolor" id="bottom" class="d_none">&nbsp;<label for="bottom">Bottom</label> 
                                 <br>
                                 <br>
                                 <button class=" btn filebtn editrbtn" id="gradientapply">Apply Gradient</button><br>
@@ -209,13 +210,15 @@
                     <section id="uploads" class="results infinite">
 
                             <div class="ml-6 pt-3 pl-4 text-center">
-                            <label class="btn-file btn filebtn editrbtn ">
+                        
+                            <label id="setbackground" class="btn-file btn filebtn editrbtn ">
                                 Set A Background Image
-                                <input runat="server" type="file" id="imgupload"/>
+                                <input runat="server" type="file" id="setbackground" style="display: none;"/>
 
                             </label>
-                            <label class="btn-file btn filebtn editrbtn">
-                                Upload an Image <input type="file" id="addImage" style="display: none;">
+                            <label id="imgupload" class="btn-file btn filebtn editrbtn">
+                                Upload an Image 
+                                <input runat="server" type="file" style="display: none;">
                             </label>
                             </div>
                     </section>
@@ -479,9 +482,7 @@
                             </div>
 
 
-                            <br>
-                            <input type="checkbox" name="" id="iscurved" class="d_none"><label for="iscurved">Want the text curved?</label><br>
-                            
+                            <br>                            
                             <button id="addTextbtn" type="button" class="btn editrbtn"> Add Text </button>
                         </div>
                     </section>
@@ -628,21 +629,374 @@
         <img class="chat-logo" src="image/chat.png" alt="">
     </div>
     
+    <div class="row editor-txtheader imageeditrow" style="display: none;">
+        <div align="center" class="col-sm-10 col-md-10 col-lg-10">
+            <button class="btn editrbtn imgbtns" id="imgeditorModal"> <span class="fa fa-picture-o"></span> Image Filters</button>
+            <button class="btn editrbtn imgbtns" id="imgCrop"> <span class="fa fa-crop"></span> Crop Image</button>
+        </div>
+    </div>
+    <div class="editor-txtheader texteditrow" style="display: none;">
+                      <div class="headerWrap">
+
+                          <!-- Alter TExt -->
+                          <button class="HCO-show myBtn skeww">
+
+                              <a class="texthdrbtn">Alter Text</a> <i class=" fa fa-angle-right textedcrt"></i>
+
+                              <div class="HCO-SC-data">
+
+                                  <select id="fontType" class="fontType2">
+                                      <option value="arial" style="font-family:Arial">Arial</option>
+    <option value="Adios_Script_Pro" style="font-family:Adios_Script_Pro">Adios_Script_Pro</option>
+    <option value="Alice-Regular" style="font-family:Alice-Regular">Alice-Regular</option>
+    <option value="Aller_Lt" style="font-family:Aller_Lt">Aller_Lt</option>
+    <option value="Aller_Rg" style="font-family:Aller_Rg">Aller_Rg</option>
+    <option value="Amperzand" style="font-family:Amperzand">Amperzand</option>
+    <option value="ArbutusSlab-Regular" style="font-family:ArbutusSlab-Regular">ArbutusSlab-Regular</option>
+    <option value="Bariol_Bold" style="font-family:Bariol_Bold">Bariol_Bold</option>
+    <option value="Bariol_Regular" style="font-family:Bariol_Regular">Bariol_Regular</option>
+    <option value="BebasNeue 2" style="font-family:BebasNeue 2">BebasNeue 2</option>
+    <option value="BebasNeue Bold" style="font-family:BebasNeue Bold">BebasNeue Bold</option>
+    <option value="BebasNeue Regular" style="font-family:BebasNeue Regular">BebasNeue Regular</option>
+    <option value="BookendsWithAccents" style="font-family:BookendsWithAccents">BookendsWithAccents</option>
+    <option value="budmo jiggler" style="font-family:budmo jiggler">budmo jiggler</option>
+    <option value="Buttermilk" style="font-family:Buttermilk">Buttermilk</option>
+    <option value="Canter Bold" style="font-family:Canter Bold">Canter Bold</option>
+    <option value="CaviarDreams_Bold" style="font-family:CaviarDreams_Bold">CaviarDreams_Bold</option>
+    <option value="CENTAUR" style="font-family:CENTAUR">CENTAUR</option>
+    <option value="CenturyGothic" style="font-family:CenturyGothic">CenturyGothic</option>
+    <option value="Didot-HTF-L24-Light" style="font-family:Didot-HTF-L24-Light">Didot-HTF-L24-Light</option>
+    <option value="Didot-HTF-L42-Light-Ital" style="font-family:Didot-HTF-L42-Light-Ital">Didot-HTF-L42-Light-Ital</option>
+    <option value="DIN_MediumAlternate" style="font-family:DIN_MediumAlternate">DIN_MediumAlternate</option>
+    <option value="EdwardianScriptITC" style="font-family:EdwardianScriptITC">EdwardianScriptITC</option>
+    <option value="Fonts With Love" style="font-family:Fonts With Love">Fonts With Love</option>
+    <option value="Ikaros-Regular" style="font-family:Ikaros-Regular">Ikaros-Regular</option>
+    <option value="In The Know" style="font-family:In The Know">In The Know</option>
+    <option value="JandaAsLongAsYouLoveMe" style="font-family:JandaAsLongAsYouLoveMe">JandaAsLongAsYouLoveMe</option>
+    <option value="Justus-Versalitas" style="font-family:Justus-Versalitas">Justus-Versalitas</option>
+    <option value="KGTwoisBetterThanOne" style="font-family:KGTwoisBetterThanOne">KGTwoisBetterThanOne</option>
+    <option value="Lace 1.0" style="font-family:Lace 1.0">Lace 1.0</option>
+    <option value="lazyday" style="font-family:lazyday">lazyday</option>
+    <option value="Linotte-SemiBold" style="font-family:Linotte-SemiBold">Linotte-SemiBold</option>
+    <option value="Moon Bold" style="font-family:Moon Bold">Moon Bold</option>
+    <option value="Moon Light" style="font-family:Moon Light">Moon Light</option>
+    <option value="MuseoSans_500" style="font-family:MuseoSans_500">MuseoSans_500</option>
+    <option value="Parisienne-Regular" style="font-family:Parisienne-Regular">Parisienne-Regular</option>
+    <option value="Pompiere-Regular" style="font-family:Pompiere-Regular">Pompiere-Regular</option>
+    <option value="Roboto-Light" style="font-family:Roboto-Light">Roboto-Light</option>
+    <option value="Roboto-Medium" style="font-family:Roboto-Medium">Roboto-Medium</option>
+    <option value="Roboto-Regular" style="font-family:Roboto-Regular">Roboto-Regular</option>
+    <option value="Signika-Bold" style="font-family:Signika-Bold">Signika-Bold</option>
+    <option value="Signika-Regular" style="font-family:Signika-Regular">Signika-Regular</option>
+    <option value="SpicyRice-Regular" style="font-family:SpicyRice-Regular">SpicyRice-Regular</option>
+    <option value="ThrowMyHandsUpintheAir" style="font-family:ThrowMyHandsUpintheAir">ThrowMyHandsUpintheAir</option>
+    <option value="ThrowMyHandsUpintheAirBold" style="font-family:ThrowMyHandsUpintheAirBold">ThrowMyHandsUpintheAirBold</option>
+    <option value="Vidaloka-Regular" style="font-family:Vidaloka-Regular">Vidaloka-Regular</option>
+    <option value="Biscotti-Bold" style="font-family:Biscotti-Bold">Biscotti-Bold</option>
+    <option value="Biscotti-Regular" style="font-family:Biscotti-Regular">Biscotti-Regular</option>
+    <option value="Geneva" style="font-family:Geneva">Geneva</option>
+    <option value="GOTHIC" style="font-family:GOTHIC">GOTHIC</option>
+    <option value="GOTHICB" style="font-family:GOTHICB">GOTHICB</option>
+    <option value="GOTHICBI" style="font-family:GOTHICBI">GOTHICBI</option>
+    <option value="GOTHICI" style="font-family:GOTHICI">GOTHIC</option>
+    <option value="GOUDYSTO" style="font-family:GOUDYSTO">GOUDYSTO</option>
+    <option value="Hero Light" style="font-family:Hero Light">Hero Light</option>
+    <option value="Hero" style="font-family:Hero">Hero</option>
+    <option value="Prida01" style="font-family:Prida01">Prida01</option>
+    <option value="Museo300-Regular" style="font-family:Museo300-Regular">Museo300-Regular</option>
+    <option value="Lora-Regular" style="font-family:Lora-Regular">Lora-Regular</option>
+    <option value="Lora-Italic" style="font-family:Lora-Italic">Lora-Italic</option>
+    <option value="Gotham-Light" style="font-family:Gotham-Light">Gotham-Light</option>
+    <option value="Gotham-Book" style="font-family:Gotham-Book">Gotham-Book</option>
+    <option value="JosefinSans-Regular" style="font-family:JosefinSans-Regular">JosefinSans-Regular</option>
+    <option value="RobotoSlab-Regular" style="font-family:RobotoSlab-Regular">RobotoSlab-Regular</option>
+    <option value="DaxCompact-Regular" style="font-family:DaxCompact-Regular">DaxCompact-Regular</option>
+    <option value="MrsEavesSmallCaps" style="font-family:MrsEavesSmallCaps">MrsEavesSmallCaps</option>
+    <option value="Abril Fatface" style="font-family:Abril Fatface">Abril Fatface</option>
+    <option value="Alex Brush" style="font-family:Alex Brush">Alex Brush</option>
+    <option value="Allura" style="font-family:Allura">Allura</option>
+    <option value="Amarante" style="font-family:Amarante">Amarante</option>
+    <option value="Amatic SC" style="font-family:Amatic SC">Amatic SC</option>
+    <option value="Amita" style="font-family:Amita">Amita</option>
+    <option value="Annie Use Your Telescope" style="font-family:Annie Use Your Telescope">Annie Use Your Telescope</option>
+    <option value="Bad Script" style="font-family:Bad Script">Bad Script</option>
+    <option value="Cinzel" style="font-family:Cinzel">Cinzel</option>
+    <option value="Cookie" style="font-family:Cookie">Cookie</option>
+    <option value="Cormorant Upright" style="font-family:Cormorant Upright">Cormorant Upright</option>
+    <option value="Dancing Script" style="font-family:Dancing Script">Dancing Script</option>
+    <option value="Delius Swash Caps" style="font-family:Delius Swash Caps">Delius Swash Caps</option>
+    <option value="Dr Sugiyama" style="font-family:Dr Sugiyama">Dr Sugiyama</option>
+    <option value="Fredericka the Great" style="font-family:Fredericka the Great">Fredericka the Great</option>
+    <option value="Gabriela" style="font-family:Gabriela">Gabriela</option>
+    <option value="Galada" style="font-family:Galada">Galada</option>
+    <option value="Great Vibes" style="font-family:Great Vibes">Great Vibes</option>
+    <option value="Handlee" style="font-family:Handlee">Handlee</option>
+    <option value="IM Fell DW Pica" style="font-family:IM Fell DW Pica">IM Fell DW Pica</option>
+    <option value="Indie Flower" style="font-family:Indie Flower">Indie Flower</option>
+    <option value="Jacques Francois Shadow" style="font-family:Jacques Francois Shadow">Jacques Francois Shadow</option>
+    <option value="Josefin Sans" style="font-family:Josefin Sans">Josefin Sans</option>
+    <option value="Joti One" style="font-family:Joti One">Joti One</option>
+    <option value="Kaushan Script" style="font-family:Kaushan Script">Kaushan Script</option>
+    <option value="Merienda One" style="font-family:Merienda One">Merienda One</option>
+    <option value="Mystery Quest" style="font-family:Mystery Quest">Mystery Quest</option>
+    <option value="Niconne" style="font-family:Niconne">Niconne</option>
+    <option value="Old Standard TT" style="font-family:Old Standard TT">Old Standard TT</option>
+    <option value="Open Sans Condensed" style="font-family:Open Sans Condensed">Open Sans Condensed</option>
+    <option value="Open Sans" style="font-family:Open Sans">Open Sans</option>
+    <option value="Oswald" style="font-family:Oswald">Oswald</option>
+    <option value="Parisienne" style="font-family:Parisienne">Parisienne</option>
+    <option value="Poiret One" style="font-family:Poiret One">Poiret One</option>
+    <option value="Quattrocento" style="font-family:Quattrocento">Quattrocento</option>
+    <option value="Quicksand" style="font-family:Quicksand">Quicksand</option> 
+    <option value="Ruthie" style="font-family:Ruthie">Ruthie</option> 
+    <option value="Slabo 27px" style="font-family:Slabo 27px">Slabo 27px</option>
+    <option value="Stalemate" style="font-family:Stalemate">Stalemate</option>
+    <option value="Source Sans Pro" style="font-family:Source Sans Pro">Source Sans Pro</option>
+    <option value="Sree Krushnadevaraya" style="font-family:Sree Krushnadevaraya">Sree Krushnadevaraya</option> 
+    <option value="Tangerine" style="font-family:Tangerine">Tangerine</option>
+    <option value="Taviraj" style="font-family:Taviraj">Taviraj</option>
+    <option value="Trirong" style="font-family:Trirong">Trirong</option>
+    <option value="UnifrakturCook" style="font-family:UnifrakturCook">UnifrakturCook</option>
+    <option value="Zeyada" style="font-family:Zeyada">Zeyada</option>
+                                  </select>
+
+                                  <label>Size : </label><input id="fontSize" class="fontSize1" type="number" min="5" max="150" step="1" value="0"><br>
+                                  <label>Font Color : </label><input type="text" id="textColor2" class="colorpck1" style="display: none;"><div class="sp-replacer sp-light"><div class="sp-preview"><div class="sp-preview-inner" style="background-color: rgb(184, 155, 30);"></div></div><div class="sp-dd">▼</div></div>
+                                  <label>Background Color : </label><input type="text" id="bgColor2" class="colorbckpck1" style="display: none;"><div class="sp-replacer sp-light"><div class="sp-preview"><div class="sp-preview-inner" style="background-color: rgb(0, 0, 0);"></div></div><div class="sp-dd">▼</div></div>
+                              </div>
+                          </button>
+
+                          <div class="headerContOne HCO-data">
+
+                              <select id="fontType" class="fontType2">
+                                      <option value="arial" style="font-family:Arial">Arial</option>
+    <option value="Adios_Script_Pro" style="font-family:Adios_Script_Pro">Adios_Script_Pro</option>
+    <option value="Alice-Regular" style="font-family:Alice-Regular">Alice-Regular</option>
+    <option value="Aller_Lt" style="font-family:Aller_Lt">Aller_Lt</option>
+    <option value="Aller_Rg" style="font-family:Aller_Rg">Aller_Rg</option>
+    <option value="Amperzand" style="font-family:Amperzand">Amperzand</option>
+    <option value="ArbutusSlab-Regular" style="font-family:ArbutusSlab-Regular">ArbutusSlab-Regular</option>
+    <option value="Bariol_Bold" style="font-family:Bariol_Bold">Bariol_Bold</option>
+    <option value="Bariol_Regular" style="font-family:Bariol_Regular">Bariol_Regular</option>
+    <option value="BebasNeue 2" style="font-family:BebasNeue 2">BebasNeue 2</option>
+    <option value="BebasNeue Bold" style="font-family:BebasNeue Bold">BebasNeue Bold</option>
+    <option value="BebasNeue Regular" style="font-family:BebasNeue Regular">BebasNeue Regular</option>
+    <option value="BookendsWithAccents" style="font-family:BookendsWithAccents">BookendsWithAccents</option>
+    <option value="budmo jiggler" style="font-family:budmo jiggler">budmo jiggler</option>
+    <option value="Buttermilk" style="font-family:Buttermilk">Buttermilk</option>
+    <option value="Canter Bold" style="font-family:Canter Bold">Canter Bold</option>
+    <option value="CaviarDreams_Bold" style="font-family:CaviarDreams_Bold">CaviarDreams_Bold</option>
+    <option value="CENTAUR" style="font-family:CENTAUR">CENTAUR</option>
+    <option value="CenturyGothic" style="font-family:CenturyGothic">CenturyGothic</option>
+    <option value="Didot-HTF-L24-Light" style="font-family:Didot-HTF-L24-Light">Didot-HTF-L24-Light</option>
+    <option value="Didot-HTF-L42-Light-Ital" style="font-family:Didot-HTF-L42-Light-Ital">Didot-HTF-L42-Light-Ital</option>
+    <option value="DIN_MediumAlternate" style="font-family:DIN_MediumAlternate">DIN_MediumAlternate</option>
+    <option value="EdwardianScriptITC" style="font-family:EdwardianScriptITC">EdwardianScriptITC</option>
+    <option value="Fonts With Love" style="font-family:Fonts With Love">Fonts With Love</option>
+    <option value="Ikaros-Regular" style="font-family:Ikaros-Regular">Ikaros-Regular</option>
+    <option value="In The Know" style="font-family:In The Know">In The Know</option>
+    <option value="JandaAsLongAsYouLoveMe" style="font-family:JandaAsLongAsYouLoveMe">JandaAsLongAsYouLoveMe</option>
+    <option value="Justus-Versalitas" style="font-family:Justus-Versalitas">Justus-Versalitas</option>
+    <option value="KGTwoisBetterThanOne" style="font-family:KGTwoisBetterThanOne">KGTwoisBetterThanOne</option>
+    <option value="Lace 1.0" style="font-family:Lace 1.0">Lace 1.0</option>
+    <option value="lazyday" style="font-family:lazyday">lazyday</option>
+    <option value="Linotte-SemiBold" style="font-family:Linotte-SemiBold">Linotte-SemiBold</option>
+    <option value="Moon Bold" style="font-family:Moon Bold">Moon Bold</option>
+    <option value="Moon Light" style="font-family:Moon Light">Moon Light</option>
+    <option value="MuseoSans_500" style="font-family:MuseoSans_500">MuseoSans_500</option>
+    <option value="Parisienne-Regular" style="font-family:Parisienne-Regular">Parisienne-Regular</option>
+    <option value="Pompiere-Regular" style="font-family:Pompiere-Regular">Pompiere-Regular</option>
+    <option value="Roboto-Light" style="font-family:Roboto-Light">Roboto-Light</option>
+    <option value="Roboto-Medium" style="font-family:Roboto-Medium">Roboto-Medium</option>
+    <option value="Roboto-Regular" style="font-family:Roboto-Regular">Roboto-Regular</option>
+    <option value="Signika-Bold" style="font-family:Signika-Bold">Signika-Bold</option>
+    <option value="Signika-Regular" style="font-family:Signika-Regular">Signika-Regular</option>
+    <option value="SpicyRice-Regular" style="font-family:SpicyRice-Regular">SpicyRice-Regular</option>
+    <option value="ThrowMyHandsUpintheAir" style="font-family:ThrowMyHandsUpintheAir">ThrowMyHandsUpintheAir</option>
+    <option value="ThrowMyHandsUpintheAirBold" style="font-family:ThrowMyHandsUpintheAirBold">ThrowMyHandsUpintheAirBold</option>
+    <option value="Vidaloka-Regular" style="font-family:Vidaloka-Regular">Vidaloka-Regular</option>
+    <option value="Biscotti-Bold" style="font-family:Biscotti-Bold">Biscotti-Bold</option>
+    <option value="Biscotti-Regular" style="font-family:Biscotti-Regular">Biscotti-Regular</option>
+    <option value="Geneva" style="font-family:Geneva">Geneva</option>
+    <option value="GOTHIC" style="font-family:GOTHIC">GOTHIC</option>
+    <option value="GOTHICB" style="font-family:GOTHICB">GOTHICB</option>
+    <option value="GOTHICBI" style="font-family:GOTHICBI">GOTHICBI</option>
+    <option value="GOTHICI" style="font-family:GOTHICI">GOTHIC</option>
+    <option value="GOUDYSTO" style="font-family:GOUDYSTO">GOUDYSTO</option>
+    <option value="Hero Light" style="font-family:Hero Light">Hero Light</option>
+    <option value="Hero" style="font-family:Hero">Hero</option>
+    <option value="Prida01" style="font-family:Prida01">Prida01</option>
+    <option value="Museo300-Regular" style="font-family:Museo300-Regular">Museo300-Regular</option>
+    <option value="Lora-Regular" style="font-family:Lora-Regular">Lora-Regular</option>
+    <option value="Lora-Italic" style="font-family:Lora-Italic">Lora-Italic</option>
+    <option value="Gotham-Light" style="font-family:Gotham-Light">Gotham-Light</option>
+    <option value="Gotham-Book" style="font-family:Gotham-Book">Gotham-Book</option>
+    <option value="JosefinSans-Regular" style="font-family:JosefinSans-Regular">JosefinSans-Regular</option>
+    <option value="RobotoSlab-Regular" style="font-family:RobotoSlab-Regular">RobotoSlab-Regular</option>
+    <option value="DaxCompact-Regular" style="font-family:DaxCompact-Regular">DaxCompact-Regular</option>
+    <option value="MrsEavesSmallCaps" style="font-family:MrsEavesSmallCaps">MrsEavesSmallCaps</option>
+    <option value="Abril Fatface" style="font-family:Abril Fatface">Abril Fatface</option>
+    <option value="Alex Brush" style="font-family:Alex Brush">Alex Brush</option>
+    <option value="Allura" style="font-family:Allura">Allura</option>
+    <option value="Amarante" style="font-family:Amarante">Amarante</option>
+    <option value="Amatic SC" style="font-family:Amatic SC">Amatic SC</option>
+    <option value="Amita" style="font-family:Amita">Amita</option>
+    <option value="Annie Use Your Telescope" style="font-family:Annie Use Your Telescope">Annie Use Your Telescope</option>
+    <option value="Bad Script" style="font-family:Bad Script">Bad Script</option>
+    <option value="Cinzel" style="font-family:Cinzel">Cinzel</option>
+    <option value="Cookie" style="font-family:Cookie">Cookie</option>
+    <option value="Cormorant Upright" style="font-family:Cormorant Upright">Cormorant Upright</option>
+    <option value="Dancing Script" style="font-family:Dancing Script">Dancing Script</option>
+    <option value="Delius Swash Caps" style="font-family:Delius Swash Caps">Delius Swash Caps</option>
+    <option value="Dr Sugiyama" style="font-family:Dr Sugiyama">Dr Sugiyama</option>
+    <option value="Fredericka the Great" style="font-family:Fredericka the Great">Fredericka the Great</option>
+    <option value="Gabriela" style="font-family:Gabriela">Gabriela</option>
+    <option value="Galada" style="font-family:Galada">Galada</option>
+    <option value="Great Vibes" style="font-family:Great Vibes">Great Vibes</option>
+    <option value="Handlee" style="font-family:Handlee">Handlee</option>
+    <option value="IM Fell DW Pica" style="font-family:IM Fell DW Pica">IM Fell DW Pica</option>
+    <option value="Indie Flower" style="font-family:Indie Flower">Indie Flower</option>
+    <option value="Jacques Francois Shadow" style="font-family:Jacques Francois Shadow">Jacques Francois Shadow</option>
+    <option value="Josefin Sans" style="font-family:Josefin Sans">Josefin Sans</option>
+    <option value="Joti One" style="font-family:Joti One">Joti One</option>
+    <option value="Kaushan Script" style="font-family:Kaushan Script">Kaushan Script</option>
+    <option value="Merienda One" style="font-family:Merienda One">Merienda One</option>
+    <option value="Mystery Quest" style="font-family:Mystery Quest">Mystery Quest</option>
+    <option value="Niconne" style="font-family:Niconne">Niconne</option>
+    <option value="Old Standard TT" style="font-family:Old Standard TT">Old Standard TT</option>
+    <option value="Open Sans Condensed" style="font-family:Open Sans Condensed">Open Sans Condensed</option>
+    <option value="Open Sans" style="font-family:Open Sans">Open Sans</option>
+    <option value="Oswald" style="font-family:Oswald">Oswald</option>
+    <option value="Parisienne" style="font-family:Parisienne">Parisienne</option>
+    <option value="Poiret One" style="font-family:Poiret One">Poiret One</option>
+    <option value="Quattrocento" style="font-family:Quattrocento">Quattrocento</option>
+    <option value="Quicksand" style="font-family:Quicksand">Quicksand</option> 
+    <option value="Ruthie" style="font-family:Ruthie">Ruthie</option> 
+    <option value="Slabo 27px" style="font-family:Slabo 27px">Slabo 27px</option>
+    <option value="Stalemate" style="font-family:Stalemate">Stalemate</option>
+    <option value="Source Sans Pro" style="font-family:Source Sans Pro">Source Sans Pro</option>
+    <option value="Sree Krushnadevaraya" style="font-family:Sree Krushnadevaraya">Sree Krushnadevaraya</option> 
+    <option value="Tangerine" style="font-family:Tangerine">Tangerine</option>
+    <option value="Taviraj" style="font-family:Taviraj">Taviraj</option>
+    <option value="Trirong" style="font-family:Trirong">Trirong</option>
+    <option value="UnifrakturCook" style="font-family:UnifrakturCook">UnifrakturCook</option>
+    <option value="Zeyada" style="font-family:Zeyada">Zeyada</option>
+                              </select>
+
+                              <label>Size : </label><input id="fontSize" class="fontSize1" type="number" min="5" max="100" step="1" value="0">
+                              <label>Font Color : </label><input type="text" id="textColor1" class="colorpck1" style="display: none;"><div class="sp-replacer sp-light"><div class="sp-preview"><div class="sp-preview-inner" style="background-color: rgb(184, 155, 30);"></div></div><div class="sp-dd">▼</div></div>
+                              <label>Background Color : </label><input type="text" id="bgColor1" class="colorbckpck1" style="display: none;"><div class="sp-replacer sp-light"><div class="sp-preview"><div class="sp-preview-inner" style="background-color: rgb(0, 0, 0);"></div></div><div class="sp-dd">▼</div></div>
+                          </div>
+
+
+                          <!-- Alter Font -->
+                          <button class="HB-show myBtn skeww">
+                              <a class="texthdrbtn">Alter Font</a> <i class=" fa fa-angle-right textedcrt"></i>
+                          </button>
+
+                          <div class="headerBtns">
+                              <div class="headerBtnsOne">
+                                  <button id="bold" class="btntxtedit btn-1 btn-1b dBlue"><i class="fa fa-bold"></i></button>
+                                  <button id="italic" class="btntxtedit btn-1 btn-1b dBlue"><i class="fa fa-italic"></i></button>
+                                  <button id="leftAlignment" class="btntxtedit btn-1 btn-1b dBlue"><i class="fa fa-align-left"></i></button>
+                                  <button id="centerAlignment" class="btntxtedit btn-1 btn-1b dBlue"><i class="fa fa-align-center"></i></button>
+                                  <button id="rightAlignment" class="btntxtedit btn-1 btn-1b dBlue"><i class="fa fa-align-right"></i></button>
+                              </div>
+
+                              <div class="headerBtnsTwo">
+                                  <button id="underline" class="btntxtedit btn-1 btn-1b green"><i class="fa fa-underline"></i></button>
+                                  <button id="linethrough" class="btntxtedit btn-1 btn-1b green"><i class="fa fa-strikethrough"></i></button>
+                                  <button id="overline" class="btntxtedit btn-1 btn-1b green">O</button>
+                                  <button id="noline" class="btntxtedit btn-1 btn-1b green">N</button>
+                              </div>
+                          </div>
+
+                          <!-- Alter Stroke -->
+                          <button class="HCT-show myBtn skeww">
+                              <a class="texthdrbtn">Alter Stroke</a> <i class=" fa fa-angle-right textedcrt"></i>
+                              <div class="HCT-SC-data">
+                                  <label>Line Height : </label>
+                                  <select id="lineHeight">
+                                      <option value="1">1</option>
+                                      <option value="1.3">1.3</option>
+                                      <option value="2">2</option>
+                                      <option value="3">3</option>
+                                      <option value="4">4</option>
+                                      <option value="5">5</option>
+                                  </select>
+                                  <label>Stroke width &amp; Color : </label><input id="strokeWidth12" class="strkwdth" type="number" min="0" max="5" value="0">
+                                  <input type="text" id="strokeColor12" class="strclr" style="display: none;"><div class="sp-replacer sp-light"><div class="sp-preview"><div class="sp-preview-inner" style="background-color: rgb(0, 0, 0);"></div></div><div class="sp-dd">▼</div></div>
+                              </div>
+                          </button>
+
+                          <div class="headerContTwo">
+                              <label>Line Height : </label>
+                              <select id="lineHeight">
+                                  <option value="1">1</option>
+                                  <option value="1.3">1.3</option>
+                                  <option value="2">2</option>
+                                  <option value="3">3</option>
+                                  <option value="4">4</option>
+                                  <option value="5">5</option>
+                              </select>
+                              <label>Stroke width &amp; Color : </label><input id="strokeWidth11" class="strkwdth" type="number" min="0" max="5" value="0">
+                              <input type="text" id="strokeColor11" class="strclr" style="display: none;"><div class="sp-replacer sp-light"><div class="sp-preview"><div class="sp-preview-inner" style="background-color: rgb(0, 0, 0);"></div></div><div class="sp-dd">▼</div></div>
+                          </div>
+
+                      </div>
+                  </div>
+        <!--panels-->
+    <div class="rightCtrls tour_3">
+        <div class="RC-cont">
+            <!-- <li ><button id="undo" disabled ><i class="fa fa-undo"></i></button></li>
+              <li ><button id="redo" disabled ><i class="fa fa-undo" style="transform: rotateY(180deg);"></i></button></li> -->
+            <li id="rotatec" class="simptip-position-left simptip-info" data-tooltip="Rotate Card" style="display: none;"><i class="fa fa-refresh"></i></li>
+            <li id="clearcanvas" class="simptip-position-left simptip-info" data-tooltip="Clean Editor"><i class="fa fa-eraser"></i></li>
+            <li id="grided" class="simptip-position-left simptip-info" data-tooltip="Apply Grid"><i class="fa fa-th"></i></li>
+            <div class="objectbuttons" style="display: none;">
+                <li id="clearobject" class="simptip-position-left simptip-info" data-tooltip="Delete selected object"><i class="fa fa-trash"></i></li>
+                <li id="copyobject" class="simptip-position-left simptip-info" data-tooltip="Duplicate your object"> <i class="fa fa-copy"></i></li>
+                <li id="bringfwd" class="simptip-position-left simptip-info" data-tooltip="Bring object forward"> <i class="fa fa-square-o" style="margin-left: 25px;margin-top: 5px;z-index: -1;"></i><i class="fa fa-square" style="margin-top: -36px;"></i></li>
+                <li id="bringback" class="simptip-position-left simptip-info" data-tooltip="Push object backward"> <i class="fa fa-square-o" style="margin-top: -8px;"></i><i class="fa fa-square" style="margin-top: -20px;margin-left: 25px;"></i></li>
+                <li id="applycolor" class="simptip-position-left simptip-info" data-tooltip="Change color of Object" style="margin-left:2px"><input type="text" id="edclrchooser" style="display: none;"><div class="sp-replacer sp-light"><div class="sp-preview"><div class="sp-preview-inner" style="background-color: rgb(254, 207, 6);"></div></div><div class="sp-dd">▼</div></div></li>
+                <li class="rightctrlexp1 simptip-position-top simptip-info" data-tooltip="Lock Objects position">
+                    <i style="color:#fff;" class="fa fa-lock"></i><i style="color:#fff;margin-left:-1px;" class="fa fa-arrows-h"></i>
+                    <i style="color:#fff;margin-left: 38px;margin-top:-21px;" class="fa fa-arrows-v"></i>
+                        <ul class="RC-subCont RCSC1">
+                            <span>
+                      <li id="lockhorizontal" class="simptip-position-left simptip-info" data-tooltip="Lock horizontal Movement"><i class="fa fa-lock"></i><i style="margin-left:-1px;" class="fa fa-arrows-h"></i></li>
+                      <li id="lockvertical" class="simptip-position-left simptip-info" data-tooltip="Lock Vertical Movement"><i class="fa fa-lock"></i><i style="margin-left: 5px;" class="fa fa-arrows-v"></i></li>
+                      </span>
+                        </ul>
+                </li>
+                <li id="lockobject" class="simptip-position-left simptip-info" data-tooltip="Lock/Unlock Object"><i style="margin-left:15px;" class="fa fa-lock"></i><i style="margin-left:2px;" class="fa fa-unlock"></i></li>
+                <li class="rightctrlexp2 simptip-position-top simptip-info" data-tooltip="Flip Objects position">
+                    <i style="color:#fff;" class="fa fa-retweet"></i>
+                    <ul class="RC-subCont RCSC2">
+                        <span>
+                          <li id="flipx" class="simptip-position-left simptip-info" data-tooltip="Flip Horizontal"><i class="fa fa-star-half-o"></i></li>
+                          <li id="flipy" class="simptip-position-left simptip-info" data-tooltip="Flip Vertical"><i class="fa fa-star-half-o" style="transform: rotate(90deg);"></i></li>
+                      </span>
+                    </ul>
+                </li>
+                <li id="shadow" class="simptip-position-left simptip-info" data-tooltip="Shadow"><i class="fa fa-adjust"></i></li>
+                <li id="opacity" class="simptip-position-left simptip-info" data-tooltip="Opacity"><i class="fa fa-first-order"></i></li>
+            </div>
+    </div>
+        </div>
+    
 </bodypart>
         <div class="clearfix"></div>
-        
         <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
         <script type="text/javascript" src="js/popper.min.js"></script>
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
-            <!-- jQuery Custom Scroller CDN -->
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
-    <!-- jQuery color picker -->
-<script src="spectrum.js"></script>
-    <!--Chat bot plugin-->
-    <script src="js/jquery.convform.js"></script>
-
-   
-<script src="js/fabric.js"></script>
+        <!-- jQuery Custom Scroller CDN -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+        <!-- jQuery color picker -->
+        <script src="spectrum.js"></script>
+        <!--Chat bot plugin-->
+        <script src="js/jquery.convform.js"></script>
+        <script src="js/fabric.js"></script>
         <script type="text/javascript" src="js/mine_mahmoud.js"></script>
     </body>
 </html>

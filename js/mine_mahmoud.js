@@ -27,6 +27,62 @@ document.getElementById('imgupload').onchange = function handleImage(e) {
     }
     reader.readAsDataURL(e.target.files[0]);
 }
+
+document.getElementById('setbackground').onchange = function handleImage(e) {
+    var reader = new FileReader();
+    reader.onload = function (event) { console.log('fdsf');
+        var imgObj = new Image();
+        imgObj.src = event.target.result;
+        imgObj.onload = function () {
+            // start fabricJS stuff
+            
+            var image = new fabric.Image(imgObj);
+            image.set({
+                left: 0,
+                scaleX: canvas.width / image.width,
+                scaleY: canvas.height / image.height,
+                top: 0,
+                angle: 0,
+                padding: 10,
+                cornersize: 0
+            });
+            //image.scale(getRandomNum(0.1, 0.25)).setCoords();
+            canvas.setBackgroundImage(image);
+            canvas.renderAll();
+            // end fabricJS stuff
+        }
+        
+    }
+    reader.readAsDataURL(e.target.files[0]);
+}
+
+//Clear Background
+function clearbg(){
+    canvas.setBackgroundImage(null, canvas.renderAll.bind(canvas));
+    canvas.setBackgroundColor(null, canvas.renderAll.bind(canvas));
+    var context = canvas.getContext('2d');
+    context.clearRect(0, 0, canvas.width, canvas.height);
+    $("#canvas1").css('background', 'linear-gradient(to bottom, ' + "white" + ' 0%, ' + "white" + ' 100%)');
+}
+////////////////////////////////
+
+$("input:checkbox").on('click', function() {
+  // in the handler, 'this' refers to the box clicked on
+  var $box = $(this);
+  if ($box.is(":checked")) {
+    // the name of the box is retrieved using the .attr() method
+    // as it is assumed and expected to be immutable
+    var group = "input:checkbox[name='" + $box.attr("name") + "']";
+    // the checked state of the group/box on the other hand will change
+    // and the current value is retrieved using .prop() method
+    $(group).prop("checked", false);
+    $box.prop("checked", true);
+  } else {
+    $box.prop("checked", false);
+  }
+});
+////////////////////////////
+
 $("#rect").click(function(){
   var rect = new fabric.Rect({
   left: 0,
@@ -127,40 +183,7 @@ $(".basic").change(function(){
 
 
 ===================*/
-$("#gradientapply").click(function(){
-	
-	
-	var valgrd1 = $("#grdColor1").val();
-	var valgrd2 = $("#grdColor2").val();
-	
-$("#canvas1").css('background', 'linear-gradient(to bottom, ' + valgrd1 + ' 0%, ' + valgrd2+ ' 100%)');
-	
-	
-})
-/*================================*/
-
-
-var currentZoom = 1;
-$('#zin').click(function() {
-    currentZoom += 0.1;
-    $('#canvas1').css({
-        zoom: currentZoom,
-        '-moz-transform': 'scale(' + currentZoom + ')'
-    });
-});
-
-
-
-var currentZoom = 1;
-$('#zout').click(function() {
-    currentZoom -= 0.1;
-    $('#canvas1').css({
-        zoom: currentZoom,
-        '-moz-transform': 'scale(' + currentZoom + ')'
-    });
-});
-
-/*===========================*/
+/*==========gradientapply=========*/
 $("input:checkbox").on('click', function() {
   // in the handler, 'this' refers to the box clicked on
   var $box = $(this);
@@ -191,6 +214,54 @@ $("#canvas1").css('background', 'linear-gradient(to bottom, ' + valgrd1 + ' 0%, 
 	
 	
 })
+/*==================================*/
+
+/*==================================*/
+function onObjectSelected(o){
+    console.log(o)
+    activeObject = canvas.getActiveObject()
+    //activeObject = o.target;
+    console.log(activeObject)
+    if(activeObject.isType('text')){
+       //display text logic
+        console.log('text panel Displayed');
+    }
+    else if(activeObject.isType('image')){
+      console.log('image panel Displayed');
+        $(".objectbuttons").css({ "display": "block" });
+            $(".editnav").css({ "display": "none" });
+            $(".imageeditrow").css({ "display": "block" });
+            $(".texteditrow").css({ "display": "none" });
+    }
+    else if( activeObject.isType('xyz')){
+      //display shape logic
+    }
+}
+
+canvas.on('object:selected', onObjectSelected);
+/*================================*/
+
+
+var currentZoom = 1;
+$('#zin').click(function() {
+    currentZoom += 0.1;
+    $('#canvas1').css({
+        zoom: currentZoom,
+        '-moz-transform': 'scale(' + currentZoom + ')'
+    });
+});
+
+
+
+var currentZoom = 1;
+$('#zout').click(function() {
+    currentZoom -= 0.1;
+    $('#canvas1').css({
+        zoom: currentZoom,
+        '-moz-transform': 'scale(' + currentZoom + ')'
+    });
+});
+
 
 /*--------------------------------------------------------*/
 //Clear Background

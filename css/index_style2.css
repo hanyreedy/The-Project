@@ -354,3 +354,8 @@ img {
     margin-bottom: 3px;
     padding: 2px;
 }
+.RC-cont>div>li>.fa {
+    font-size: 20px;
+    color: #dcdcdc;
+    margin-left: 20px;
+}
